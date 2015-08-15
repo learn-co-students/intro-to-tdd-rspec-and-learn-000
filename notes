@@ -1,0 +1,73 @@
+Objectives; 
+
+1. define the purpose of a code test
+2. read the rspec tests
+3. run tests cia the learn command
+4. undersand test output
+5. write code to make tests pass. 
+
+
+tests:
+
+tests verify the code you write behaves and produces the desired result. 
+
+tdd, you should think about what you want your program to do, how you want code to behaver before you start codes. 
+
+tdd:
+
+* first write the test for specific function of your code
+* then write the code to make the tests pass. 
+
+
+writing a test:
+
+identifying the desired behavior
+
+we need to think about what our program needs to do. what is the desired behavior of our code?
+
+users will fill out their profile information with what year they were born. 
+
+display how old they were on their profile page
+
+I espect the method current_age_for_borth_year(1984) to return 31. 
+
+Understand testing at a high level, idea is the labs come with expectations for how your code should behave and how to write the code to make those tests pass. 
+
+
+* describe block, data doesn't matter
+* it block, states the expectation or behavior of that method 
+* between it and end, we test the functionality of our method. 
+
+
+age_of_person = current_age_for_birth_year(1984)
+expect(age_of_person).to eq(31)
+
+
+* a test is always going to be about setting up a state with a known result and comparing that known result to the expactation to the behavior of your program. 
+
+
+Running tests:
+
+rspec spec/file.rb
+
+* you get failure, for example:
+
+  NoMethodError:
+       undefined method `current_age_for_birth_year' for #<RSpec::ExampleGroups::CurrentAgeForBirthYearMethod:0x007fbb8b0607b8>
+     # ./spec/current_age_for_birth_year_spec.rb:5:in `block (2 levels) in <top (required)>'
+
+
+problem: there is no method current_year_for_birth_year
+
+
+you get another failure:
+
+  1) current_age_for_birth_year method returns the age of a person based on the year of birth
+     Failure/Error: age_of_person = current_age_for_birth_year(1984)
+     ArgumentError:
+       wrong number of arguments (1 for 0)
+     # ./current_age_for_birth_year.rb:1:in `current_age_for_birth_year'
+     # ./spec/current_age_for_birth_year_spec.rb:5:in `block (2 levels) in <top (required)>'
+
+
+problem: the method needs an argument
